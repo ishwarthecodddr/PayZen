@@ -14,7 +14,7 @@ export const Users = () => {
   async function fetchUsers() {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/user/bulk?filter=" +
+        "https://payzen-backend.onrender.com/api/v1/user/bulk?filter=" +
           encodeURIComponent(filter) // encodeURIComponent is used to encode the filter string so that it can be used in the URL to take care of special characters
       );
       setUsers(res.data.user);

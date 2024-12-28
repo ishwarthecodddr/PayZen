@@ -11,7 +11,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+        const response = await axios.get("https://payzen-backend.onrender.com/api/v1/account/balance", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token")
           }

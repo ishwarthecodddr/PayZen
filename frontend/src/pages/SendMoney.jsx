@@ -9,7 +9,7 @@ export default function SendMoney() {
   const id = searchParams.get("userId");
   const [amount, setAmount] = useState(0);
   const handleTransfer = async () => {
-      const response = await axios.post("http://localhost:3000/api/v1/account/transfer", {
+      const response = await axios.post("https://payzen-backend.onrender.com/api/v1/account/transfer", {
           to:id,
           amount,
       }, {
