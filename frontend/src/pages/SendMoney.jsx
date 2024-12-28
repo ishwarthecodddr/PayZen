@@ -35,15 +35,15 @@ export default function SendMoney() {
           <div className="text-3xl font-bold text-white text-center mb-8">Send Money</div>
           <div className="p-6">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
                 <span className="text-2xl text-white">{name[0].toUpperCase()}</span>
               </div>
-              <h3 className="text-2xl font-semibold">{name}</h3>
+              <h3 className="text-3xl font-semibold text-green-500">{name}</h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="space-y-2">
                 <label
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  className="text-sm font-medium text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   for="amount"
                 >
                   Amount (in Rs)

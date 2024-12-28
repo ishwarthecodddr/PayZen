@@ -30,7 +30,7 @@ export const Users = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
     >
-      <div className="font-bold mt-6 text-2xl text-gray-800">Users</div>
+      <div className="font-bold mt-6 text-2xl text-green-600">Users</div>
       <motion.div 
         className="my-4"
         whileHover={{ scale: 1.01 }}
