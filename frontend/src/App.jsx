@@ -1,23 +1,36 @@
-import { useState } from 'react';
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Signin} from './pages/Signin';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
-import SendMoney  from './pages/SendMoney';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Signin } from "./pages/Signin";
+import { Signup }from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import SendMoney from "./pages/SendMoney";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import {Hero} from "./pages/Hero";
 
-function App() {  
+function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/signin' element={<Signin/>}></Route>
-          <Route path='/signup' element={<Signup/>}></Route>
-          <Route path='/dashboard' element={<Dashboard/>}></Route>
-          <Route path='/send' element={<SendMoney/>}></Route>
-        </Routes>
-      </BrowserRouter> 
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/send" 
+          element={
+            <ProtectedRoute>
+              <SendMoney />
+            </ProtectedRoute>
+          } 
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

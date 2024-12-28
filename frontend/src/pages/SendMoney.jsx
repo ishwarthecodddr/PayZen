@@ -1,6 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 export default function SendMoney() {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
@@ -18,12 +20,19 @@ export default function SendMoney() {
       alert("₹ "+amount+" sent to "+name);
   };
   return (
-    <div className="flex justify-center h-screen bg-gray-100">
-      <div className="h-full flex flex-col justify-center">
-        <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
-          <div className="flex flex-col space-y-1.5 p-6">
-            <h2 className="text-3xl font-bold text-center">Send Money</h2>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 flex justify-center items-center p-4">
+      <motion.div 
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div 
+          className="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-2xl"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <div className="text-3xl font-bold text-white text-center mb-8">Send Money</div>
           <div className="p-6">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
@@ -47,13 +56,18 @@ export default function SendMoney() {
                   onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
-              <button onClick={handleTransfer} className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
+              <motion.button 
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+                onClick={handleTransfer} 
+                className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600"
+              >
                 Initiate Transfer
-              </button>
+              </motion.button>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
